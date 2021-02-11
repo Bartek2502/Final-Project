@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="58,30,0,0" VerticalAlignment="Top" Width="120"/>
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="292" Margin="46,103,0,0" VerticalAlignment="Top" Width="267"/>
+        <ListBox x:Name="lbxGames" HorizontalAlignment="Left" Height="292" Margin="46,103,0,0" VerticalAlignment="Top" Width="267"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="551,18,0,0" TextWrapping="Wrap" Text="Game description" VerticalAlignment="Top" Height="34" Width="115"/>
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="551,165,0,0" TextWrapping="Wrap" Text="&quot;Game Description&quot;" VerticalAlignment="Top"/>
         <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="546,278,0,0" VerticalAlignment="Top" Width="120"/>

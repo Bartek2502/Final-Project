@@ -6,22 +6,52 @@ using System.Threading.Tasks;
 
 namespace Final_Project
 {
-    class Games
+    public abstract class Games
     {
+        //properties
         public string Name { get; set; }
         public double Score { get; set; }
-        public DateTime RealeaseDate { get; set; }
-
+        public int RealeaseYear{ get; set; }
+         
+        //default constructor 
         public Games()
         {
 
         }
-        public Games(string name, double score, DateTime realeaseDate)
+        public Games(string name, double score, int realeaseYear)
         {
             name = Name;
             score = Score;
-            realeaseDate = RealeaseDate; 
+            realeaseYear = RealeaseYear; 
         }
 
+    }
+    public class Platformer : Games
+    {
+        public override string ToString()
+        {
+            return base.ToString() + " - Platformer";
+        }
+    }
+    public class RolePlayingGame: Games
+    {
+        public override string ToString()
+        {
+            return base.ToString() + " - RolePlayingGame";
+        }
+    }
+    public class Horror: Games
+    {
+        public override string ToString()
+        {
+            return base.ToString() + " - Horror";
+        }
+    }
+    public class Puzzle: Games
+    {
+        public override string ToString()
+        {
+            return base.ToString() + " - Puzzle";
+        }
     }
 }
