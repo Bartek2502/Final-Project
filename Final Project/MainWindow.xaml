@@ -11,10 +11,10 @@
             <ColumnDefinition Width="202*"/>
             <ColumnDefinition Width="195*"/>
         </Grid.ColumnDefinitions>
-        <ComboBox x:Name="cbxGenre" HorizontalAlignment="Left" Margin="58,30,0,0" VerticalAlignment="Top" Width="120"/>
-        <ListBox x:Name="lbxGames" HorizontalAlignment="Left" Height="292" Margin="46,103,0,0" VerticalAlignment="Top" Width="267"/>
+        <ComboBox x:Name="cbxGenre" HorizontalAlignment="Left" Margin="58,30,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="CbxGenre_SelectionChanged"/>
+        <ListBox x:Name="lbxGames" HorizontalAlignment="Left" Height="292" Margin="46,103,0,0" VerticalAlignment="Top" Width="267" SelectionChanged="LbxGames_SelectionChanged"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="147.372,18,0,0" TextWrapping="Wrap" Text="Game description" VerticalAlignment="Top" Height="34" Width="115" Grid.Column="1"/>
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="147.372,165,0,0" TextWrapping="Wrap" Text="&quot;Game Description&quot;" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBlock x:Name="tblkDescription" HorizontalAlignment="Left" Margin="147.372,165,0,0" TextWrapping="Wrap" Text="&quot;Game Description&quot;" VerticalAlignment="Top" Grid.Column="1"/>
         <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="142.372,278,0,0" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
         <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="158.372,356,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1"/>
         <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="179.372,247,0,0" TextWrapping="Wrap" Text="Rate it!" VerticalAlignment="Top" Grid.Column="1"/>
