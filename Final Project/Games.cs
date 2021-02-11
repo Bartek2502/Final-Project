@@ -15,10 +15,10 @@ namespace Final_Project
         public List<Description> SynopsisList { get; set; }
 
         //default constructor 
-        public Games()
-        {
+        public Games() : this("Unknown", 0) { }
+        
 
-        }
+        
         public Games(string name, int pegi)
         {
             name = Name;
@@ -28,6 +28,18 @@ namespace Final_Project
         public override string ToString()
         {
             return Name + "(" + Pegi + ")";
+        }
+
+        public string DisplayList()
+        {
+            string s = "";
+
+            foreach (var item in SynopsisList)
+            {
+                s += item + "\n";
+            }
+
+            return s;
         }
 
     }

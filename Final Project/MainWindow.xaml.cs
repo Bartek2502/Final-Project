@@ -235,7 +235,7 @@ namespace Final_Project
 
             if (selectedGame != null)
             {
-                lbkDescription.Text = selectedGame.SynopsisList.ToString();
+                lbkDescription.Text = selectedGame.DisplayList();
 
                
             }
