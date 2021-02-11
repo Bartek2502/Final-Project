@@ -33,11 +33,11 @@ namespace Final_Project
             return base.ToString() + " - Platformer";
         }
     }
-    public class RolePlayingGame: Games
+    public class RPG: Games
     {
         public override string ToString()
         {
-            return base.ToString() + " - RolePlayingGame";
+            return base.ToString() + " - RPG";
         }
     }
     public class Horror: Games

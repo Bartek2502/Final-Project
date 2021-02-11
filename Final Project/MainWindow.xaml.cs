@@ -20,9 +20,16 @@ namespace Final_Project
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<Games> allGames = new List<Games>();
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            string[] genres = { "All", "Platformer", "RPG", "Horror", "Puzzle" };
+            cbxGenre.ItemsSource = genres;
         }
     }
 }
