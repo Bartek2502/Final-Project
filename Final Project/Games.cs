@@ -12,7 +12,9 @@ namespace Final_Project
         public string Name { get; set; }
         public double Score { get; set; }
         public int RealeaseYear{ get; set; }
-         
+
+        public List<Description> SynopsisList { get; set; }
+
         //default constructor 
         public Games()
         {
@@ -22,7 +24,9 @@ namespace Final_Project
         {
             name = Name;
             score = Score;
-            realeaseYear = RealeaseYear; 
+            realeaseYear = RealeaseYear;
+
+            SynopsisList = new List<Description>();
         }
         public override string ToString()
         {

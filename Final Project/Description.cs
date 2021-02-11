@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Final_Project
 {
-    class Description
+    public class Description
     {
         public string Synopsis { get; set; }
         public double Score { get; set; }
