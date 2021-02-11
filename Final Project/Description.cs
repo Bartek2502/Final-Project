@@ -10,6 +10,24 @@ namespace Final_Project
     {
         public string Synopsis { get; set; }
         public double Score { get; set; }
-        public int RealeaseYear { get; set; }
+        public int ReleaseYear { get; set; }
+
+        public Description()
+        {
+
+        }
+
+        public Description(string synopsis, double score, int releaseYear)
+        {
+            synopsis = Synopsis;
+            score = Score;
+            releaseYear = ReleaseYear;
+        }
+
+        public override string ToString()
+        {
+            return string.Format($"{Synopsis} - released in {ReleaseYear}. Average user score of {Score}");
+
+        }
     }
 }
