@@ -33,24 +33,24 @@ namespace Final_Project
             cbxGenre.ItemsSource = genres;
 
             //Platformer Games
-            Games g1 = new Platformer() { Name = "Celeste", RealeaseYear = 2018, Score = 9.5 };
-            Games g2 = new Platformer() { Name = "Super Mario Odyssey", RealeaseYear = 2017, Score = 8.0 };
-            Games g3 = new Platformer() { Name = "Crash 4", RealeaseYear = 2020, Score = 9.0 };
-            Games g4 = new Platformer() { Name = "A Hat in Time", RealeaseYear = 2017, Score = 7.6 };
+            Games g1 = new Platformer() { Name = "Celeste", Pegi = 7 };
+            Games g2 = new Platformer() { Name = "Super Mario Odyssey", Pegi = 3};
+            Games g3 = new Platformer() { Name = "Crash 4", Pegi = 12};
+            Games g4 = new Platformer() { Name = "A Hat in Time", Pegi = 7};
 
             //Role Playing Games
-            Games g5 = new RPG() { Name = "Final Fantasy VII", RealeaseYear = 1996, Score = 9.0};
-            Games g6 = new RPG() { Name = "Persona 5", RealeaseYear = 2016, Score = 9.9};
-            Games g7 = new RPG() { Name = "The Witcher 3", RealeaseYear = 2015, Score = 8.3 };
+            Games g5 = new RPG() { Name = "Final Fantasy VII", Pegi = 12};
+            Games g6 = new RPG() { Name = "Persona 5", Pegi = 16};
+            Games g7 = new RPG() { Name = "The Witcher 3", Pegi = 18};
 
             //Horror Games
-            Games g8 = new Horror() { Name = "Outlast", RealeaseYear = 2014, Score = 6.3 };
-            Games g9 = new Horror() { Name = "Phasmophobia", RealeaseYear = 2020, Score = 7.8 };
-            Games g10 = new Horror() { Name = "Resident Evil VILLAGE", RealeaseYear = 2021, Score = 9.0 };
+            Games g8 = new Horror() { Name = "Outlast", Pegi = 18 };
+            Games g9 = new Horror() { Name = "Phasmophobia", Pegi = 12 };
+            Games g10 = new Horror() { Name = "Resident Evil VILLAGE", Pegi = 18};
 
             //Puzzle Games
-            Games g11 = new Puzzle() { Name = "Bejeweled 3", RealeaseYear = 2010, Score = 8.2 };
-            Games g12 = new Puzzle() { Name = "Candy Crush", RealeaseYear = 2012, Score = 2.5 };
+            Games g11 = new Puzzle() { Name = "Bejeweled 3", Pegi = 3 };
+            Games g12 = new Puzzle() { Name = "Candy Crush", Pegi = 3};
 
 
             Description d1 = new Description()
@@ -137,6 +137,7 @@ namespace Final_Project
             };
 
 
+            // adding synopsis to the game objects
             g1.SynopsisList.Add(d1);
             g2.SynopsisList.Add(d2);
             g3.SynopsisList.Add(d3);
@@ -230,7 +231,14 @@ namespace Final_Project
 
         private void LbxGames_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Games selectedGame = lbxGames.SelectedItem as Games;
 
+            if (selectedGame != null)
+            {
+                lbkDescription.Text = selectedGame.SynopsisList.ToString();
+
+               
+            }
         }
     }
 }

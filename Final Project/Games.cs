@@ -10,8 +10,7 @@ namespace Final_Project
     {
         //properties
         public string Name { get; set; }
-        public double Score { get; set; }
-        public int RealeaseYear{ get; set; }
+        public  int Pegi { get; set; }
 
         public List<Description> SynopsisList { get; set; }
 
@@ -20,17 +19,15 @@ namespace Final_Project
         {
 
         }
-        public Games(string name, double score, int realeaseYear)
+        public Games(string name, int pegi)
         {
             name = Name;
-            score = Score;
-            realeaseYear = RealeaseYear;
-
+            pegi = Pegi;
             SynopsisList = new List<Description>();
         }
         public override string ToString()
         {
-            return Name;
+            return Name + "(" + Pegi + ")";
         }
 
     }
