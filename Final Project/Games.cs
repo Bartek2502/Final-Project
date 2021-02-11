@@ -24,6 +24,10 @@ namespace Final_Project
             score = Score;
             realeaseYear = RealeaseYear; 
         }
+        public override string ToString()
+        {
+            return Name;
+        }
 
     }
     public class Platformer : Games
