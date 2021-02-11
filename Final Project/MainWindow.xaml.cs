@@ -137,6 +137,19 @@ namespace Final_Project
             };
 
 
+            g1.SynopsisList.Add(d1);
+            g2.SynopsisList.Add(d2);
+            g3.SynopsisList.Add(d3);
+            g4.SynopsisList.Add(d4);
+            g5.SynopsisList.Add(d5);
+            g6.SynopsisList.Add(d6);
+            g7.SynopsisList.Add(d7);
+            g8.SynopsisList.Add(d8);
+            g9.SynopsisList.Add(d9);
+            g10.SynopsisList.Add(d10);
+            g11.SynopsisList.Add(d11);
+            g12.SynopsisList.Add(d12);
+
             //Adding all the games to the list
             allGames.Add(g1);
             allGames.Add(g2);
