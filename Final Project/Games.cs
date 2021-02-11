@@ -20,7 +20,7 @@ namespace Final_Project
         {
             name = Name;
             score = Score;
-            realeaseDate = RealeaseDate;   
+            realeaseDate = RealeaseDate; 
         }
 
     }
