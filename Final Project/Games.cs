@@ -12,17 +12,19 @@ namespace Final_Project
         public string Name { get; set; }
         public  int Pegi { get; set; }
 
+        public string GameImage { get; set; }
         public List<Description> SynopsisList { get; set; }
 
         //default constructor 
-        public Games() : this("Unknown", 0) { }
+        public Games() : this("Unknown", 0,"Unknown") { }
         
 
         
-        public Games(string name, int pegi)
+        public Games(string name, int pegi, string gameImage)
         {
             name = Name;
             pegi = Pegi;
+            gameImage = GameImage;
             SynopsisList = new List<Description>();
         }
         public override string ToString()
@@ -41,6 +43,18 @@ namespace Final_Project
 
             return s;
         }
+
+       /* public string DisplayScore()
+        {
+            string s = "";
+
+            foreach (var item in SynopsisList)
+            {
+                s += item + "\n";
+            }
+
+            return s;
+        }*/
 
     }
     public class Platformer : Games
