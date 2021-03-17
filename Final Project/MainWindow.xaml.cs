@@ -35,24 +35,24 @@ namespace Final_Project
             string[] rating = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
             cbxRate.ItemsSource = rating;
             //Platformer Games
-            Games g1 = new Platformer() { Name = "Celeste", Pegi = 7, GameImage = "/images/celeste.jpg" };
-            Games g2 = new Platformer() { Name = "Super Mario Odyssey", Pegi = 3, GameImage = "/images/odyssey.jpg" };
-            Games g3 = new Platformer() { Name = "Crash 4", Pegi = 12, GameImage = "/images/celeste.jpg" };
-            Games g4 = new Platformer() { Name = "A Hat in Time", Pegi = 7, GameImage = "/images/celeste.jpg" };
+            Games g1 = new Platformer() { Name = "Celeste", Pegi = 7, GameImage ="/images/celeste.jpg" };
+            Games g2 = new Platformer() { Name = "Super Mario Odyssey", Pegi = 3, GameImage ="/images/odyssey.jpg" };
+            Games g3 = new Platformer() { Name = "Crash 4", Pegi = 12, GameImage ="/images/crash.jpg" };
+            Games g4 = new Platformer() { Name = "A Hat in Time", Pegi = 7, GameImage ="/images/hat.jpg" };
 
             //Role Playing Games
-            Games g5 = new RPG() { Name = "Final Fantasy VII", Pegi = 12};
-            Games g6 = new RPG() { Name = "Persona 5", Pegi = 16};
-            Games g7 = new RPG() { Name = "The Witcher 3", Pegi = 18};
+            Games g5 = new RPG() { Name = "Final Fantasy VII", Pegi = 12, GameImage = "/images/ff7.jpg" };
+            Games g6 = new RPG() { Name = "Persona 5", Pegi = 16, GameImage = "/images/p5.jpg" };
+            Games g7 = new RPG() { Name = "The Witcher 3", Pegi = 18, GameImage = "/images/witcher.jpg" };
 
             //Horror Games
-            Games g8 = new Horror() { Name = "Outlast", Pegi = 18 };
-            Games g9 = new Horror() { Name = "Phasmophobia", Pegi = 12 };
-            Games g10 = new Horror() { Name = "Resident Evil VILLAGE", Pegi = 18};
+            Games g8 = new Horror() { Name = "Outlast", Pegi = 18, GameImage = "/images/outlast.jpg" };
+            Games g9 = new Horror() { Name = "Phasmophobia", Pegi = 12, GameImage = "/images/phas.jpg" };
+            Games g10 = new Horror() { Name = "Resident Evil VILLAGE", Pegi = 18, GameImage = "/images/re8.jpg" };
 
             //Puzzle Games
-            Games g11 = new Puzzle() { Name = "Bejeweled 3", Pegi = 3 };
-            Games g12 = new Puzzle() { Name = "Candy Crush", Pegi = 3};
+            Games g11 = new Puzzle() { Name = "Bejeweled 3", Pegi = 3, GameImage = "/images/gem.jpg" };
+            Games g12 = new Puzzle() { Name = "Candy Crush", Pegi = 3, GameImage = "/images/candy.jpg" };
 
 
             Description d1 = new Description()
@@ -252,8 +252,8 @@ namespace Final_Project
             if (selectedGame != null)
             {
                 lbkDescription.Text = selectedGame.DisplayList();
-                CoverImage.Source = new BitmapImage(new Uri("/images/celeste.jpg", UriKind.Relative));
-                //selectedGame.GameImage
+                CoverImage.Source = new BitmapImage(new Uri(selectedGame.GameImage, UriKind.Relative));
+                
             }
         }
 

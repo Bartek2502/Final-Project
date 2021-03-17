@@ -24,7 +24,7 @@
                 <ComboBox x:Name="cbxRate" HorizontalAlignment="Left" Margin="94.8,278,0,0" VerticalAlignment="Top" Width="120" Grid.Column="3"/>
                 <Button x:Name="button" Content="Submit" HorizontalAlignment="Left" Margin="114.6,359,0,0" VerticalAlignment="Top" Width="75" Grid.Column="3" Click="Button_Click"/>
                 <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="131.8,247,0,0" TextWrapping="Wrap" Text="Rate it!" VerticalAlignment="Top" Grid.Column="3"/>
-                <Image x:Name="CoverImage" Source="/images/null.jpg" Margin="343,103,295,150" Grid.ColumnSpan="4"/>
+                <Image x:Name="CoverImage" Source="/images/nothing.jpg" Margin="331,103,307,150" Grid.ColumnSpan="4"/>
                 <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="88,10,0,0" TextWrapping="Wrap" Text="Genre" VerticalAlignment="Top"/>
 
             </Grid>
