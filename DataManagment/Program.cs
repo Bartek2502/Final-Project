@@ -36,6 +36,29 @@ namespace DataManagment
                 VideoGame g11 = new VideoGame() { GameID = 11, GameName = "Rhythm Heaven Fever", GameRelease = 2011, CompanyID = 4, GameCompany = c4, GameImage = "https://upload.wikimedia.org/wikipedia/en/thumb/b/bb/Rhythm-heaven-fever.jpg/220px-Rhythm-heaven-fever.jpg" };
                 VideoGame g12 = new VideoGame() { GameID = 12, GameName = "Super Mario Odyssey", GameRelease = 2017, CompanyID = 4, GameCompany = c4, GameImage = "https://static-ie.gamestop.ie/images/products/257778/3max.jpg" };
 
+                db.GameCompanies.Add(c1);
+                db.GameCompanies.Add(c2);
+                db.GameCompanies.Add(c3);
+                db.GameCompanies.Add(c4);
+                Console.WriteLine("Added Game Companies to db");
+
+                db.VideoGames.Add(g1);
+                db.VideoGames.Add(g2);
+                db.VideoGames.Add(g3);
+                db.VideoGames.Add(g4);
+                db.VideoGames.Add(g5);
+                db.VideoGames.Add(g6);
+                db.VideoGames.Add(g7);
+                db.VideoGames.Add(g8);
+                db.VideoGames.Add(g9);
+                db.VideoGames.Add(g10);
+                db.VideoGames.Add(g11);
+                db.VideoGames.Add(g12);
+                Console.WriteLine("Added Video Games to db");
+
+                db.SaveChanges();
+                Console.WriteLine("Saved all to db");
+
             }
         }
     }
