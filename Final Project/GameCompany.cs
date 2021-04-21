@@ -4,11 +4,13 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace Final_Project
 {
     public class GameCompany
     {
+        [Key]
         public int CompanyID { get; set; }
         public string CompanyName { get; set; }
         public int Founded { get; set; }
@@ -17,6 +19,7 @@ namespace Final_Project
     }
     public class VideoGame
     {
+        [Key]
         public int GameID { get; set; }
         public string GameName { get; set; }
         public string GameImage { get; set; }
