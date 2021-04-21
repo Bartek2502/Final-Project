@@ -271,5 +271,10 @@ namespace Final_Project
                     break;
             }
         }
+
+        private void GameCompanies_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string selectedCompany = GameCompaniesBox.SelectedItem as string;
+        }
     }
 }

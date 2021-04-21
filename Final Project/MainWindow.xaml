@@ -29,13 +29,19 @@
 
             </Grid>
         </TabItem>
-        <TabItem Name="Reviews" Header="Reviews" Width="150">
+        <TabItem Name="GameCompanies" Header="Game Companies" Width="150">
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="2"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="80*"/>
+                    <RowDefinition Height="10*"/>
+                </Grid.RowDefinitions>
+
+                <ComboBox Grid.Row="0" Name="GameCompaniesBox"  Margin="57,10,488,4.4"  SelectionChanged="GameCompanies_SelectionChanged"/>
+                <ListBox Name="GamesCompaniesList" Margin="10,38,437,20" Grid.RowSpan="2" />
+                <Image x:Name="GameCover1" Source="/images/nothing.jpg" Margin="384,56.8,279,104" Grid.Row="1" />
+                <Image x:Name="GameCover2" Source="/images/nothing.jpg" Margin="514,56.8,149,104" Grid.Row="1"/>
+                <Image x:Name="GameCover3" Source="/images/nothing.jpg" Margin="644,56.8,19,104" Grid.Row="1"/>
 
             </Grid>
         </TabItem>
