@@ -39,5 +39,15 @@
 
             </Grid>
         </TabItem>
+        <TabItem Name="Shop" Header="Shop" Width="150">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+            </Grid>
+        </TabItem>
     </TabControl>
 </Window>

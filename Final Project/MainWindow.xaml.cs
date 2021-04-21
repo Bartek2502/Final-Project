@@ -252,6 +252,7 @@ namespace Final_Project
             if (selectedGame != null)
             {
                 lbkDescription.Text = selectedGame.DisplayList();
+                string path = selectedGame.GameImage;
                 CoverImage.Source = new BitmapImage(new Uri(selectedGame.GameImage, UriKind.Relative));
                 
             }
