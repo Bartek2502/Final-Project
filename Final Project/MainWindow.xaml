@@ -57,6 +57,7 @@
                     <ColumnDefinition Width="2"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
+                <TextBlock x:Name="tblkSpecialTimer" Grid.Column="2" HorizontalAlignment="Left" Margin="202.8,49,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
 
             </Grid>
         </TabItem>

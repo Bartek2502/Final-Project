@@ -199,6 +199,27 @@ namespace Final_Project
 
             GameCompaniesBox.ItemsSource = results;
 
+
+
+            //####################
+
+            CountDownTimer timer = new CountDownTimer();
+
+
+            //set to 30 mins
+            timer.SetTime(30, 0);
+
+            timer.Start();
+
+            //update label text
+            timer.TimeChanged += () => tblkSpecialTimer.Text = timer.TimeLeftMsStr;
+
+            // show messageBox on timer = 00:00.000
+            timer.CountDownFinished += () => MessageBox.Show("Timer finished the work!");
+
+            //timer step. By default is 1 second
+            timer.StepMs = 77; // for nice milliseconds time switch
+
         }
 
         private void CbxGenre_SelectionChanged(object sender, SelectionChangedEventArgs e)

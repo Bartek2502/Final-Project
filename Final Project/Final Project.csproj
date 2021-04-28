@@ -75,6 +75,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CountDownTimer.cs" />
     <Compile Include="Description.cs" />
     <Compile Include="GameCompany.cs" />
     <Compile Include="Games.cs" />
