@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace Final_Project
 {
@@ -330,6 +332,11 @@ namespace Final_Project
             VideoGame selectedGame = lbxVideoGames.SelectedItem as VideoGame;
             CoverImage1.Source = new BitmapImage(new Uri(selectedGame.GameImage, UriKind.Absolute));
             gameInfo.Text = selectedGame.GameName + " Released in " + selectedGame.GameRelease;
+        }
+
+        private void ButtonBuy_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
