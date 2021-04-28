@@ -21,6 +21,7 @@ namespace Final_Project
     public partial class MainWindow : Window
     {
         List<Games> allGames = new List<Games>();
+        GameCompanyData db = new GameCompanyData();
         public MainWindow()
         {
             InitializeComponent();
@@ -185,9 +186,18 @@ namespace Final_Project
 
 
 
+            /*
+            * ##################################################
+            * ##################################################
+            * ##################################################
+            */
+            var query = from gc in db.GameCompanies
+                        orderby gc.CompanyName
+                        select gc;
 
+            var results = query.ToList();
 
-
+            GameCompaniesBox.ItemsSource = results;
 
         }
 
@@ -274,7 +284,31 @@ namespace Final_Project
 
         private void GameCompanies_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string selectedCompany = GameCompaniesBox.SelectedItem as string;
+            GameCompany selectedCompany = GameCompaniesBox.SelectedItem as GameCompany;
+
+            if (selectedCompany != null)
+            {
+                CompanyLogo.Source = new BitmapImage(new Uri(selectedCompany.CompanyImage, UriKind.Absolute));
+                companyInfo.Text = selectedCompany.CompanyName + " Founded in " + selectedCompany.Founded;
+
+                var query = from vg in db.VideoGames
+                            where vg.CompanyID == selectedCompany.CompanyID
+                            select vg;
+
+                var results = query.ToList();
+
+                lbxVideoGames.ItemsSource = results;
+
+            }
+            //string selectedCompany = GameCompaniesBox.SelectedItem as string;
+
+        }
+
+        private void LbxVideoGames_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            VideoGame selectedGame = lbxVideoGames.SelectedItem as VideoGame;
+            CoverImage1.Source = new BitmapImage(new Uri(selectedGame.GameImage, UriKind.Absolute));
+            gameInfo.Text = selectedGame.GameName + " Released in " + selectedGame.GameRelease;
         }
     }
 }

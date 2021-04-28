@@ -16,6 +16,11 @@ namespace Final_Project
         public int Founded { get; set; }
         public string CompanyImage { get; set; }
         public virtual List<VideoGame> VideoGames { get; set; }
+
+        public override string ToString()
+        {
+            return CompanyName;
+        }
     }
     public class VideoGame
     {
@@ -26,6 +31,11 @@ namespace Final_Project
         public int GameRelease { get; set; }
         public int CompanyID { get; set; }
         public virtual GameCompany GameCompany { get; set; }
+
+        public override string ToString()
+        {
+            return GameName;
+        }
     }
     public class GameCompanyData : DbContext
     {

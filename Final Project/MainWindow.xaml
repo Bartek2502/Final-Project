@@ -31,17 +31,22 @@
         </TabItem>
         <TabItem Name="GameCompanies" Header="Game Companies" Width="150">
             <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="37*"/>
+                    <ColumnDefinition Width="357*"/>
+                </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="10*"/>
                     <RowDefinition Height="80*"/>
                     <RowDefinition Height="10*"/>
                 </Grid.RowDefinitions>
 
-                <ComboBox Grid.Row="0" Name="GameCompaniesBox"  Margin="57,10,488,4.4"  SelectionChanged="GameCompanies_SelectionChanged"/>
-                <ListBox Name="GamesCompaniesList" Margin="10,38,437,20" Grid.RowSpan="2" />
-                <Image x:Name="GameCover1" Source="/images/nothing.jpg" Margin="384,56.8,279,104" Grid.Row="1" />
-                <Image x:Name="GameCover2" Source="/images/nothing.jpg" Margin="514,56.8,149,104" Grid.Row="1"/>
-                <Image x:Name="GameCover3" Source="/images/nothing.jpg" Margin="644,56.8,19,104" Grid.Row="1"/>
+                <ComboBox Grid.Row="0" Name="GameCompaniesBox"  Margin="57,10,488,5.2"  SelectionChanged="GameCompanies_SelectionChanged" Grid.ColumnSpan="2"/>
+                <ListBox x:Name="lbxVideoGames" Margin="10,38,437,20" Grid.RowSpan="2" Grid.ColumnSpan="2" SelectionChanged="LbxVideoGames_SelectionChanged" />
+                <Image x:Name="CompanyLogo" Source="/images/nothing.jpg" Margin="539.4,8.8,50,192" Grid.Row="1" Grid.Column="1"/>
+                <Image x:Name="CoverImage1" Source="/images/nothing.jpg" Margin="539.6,149.6,50,51" Grid.Row="1" Grid.Column="1"/>
+                <TextBlock x:Name="companyInfo" HorizontalAlignment="Left" Margin="308.4,29.8,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" RenderTransformOrigin="-0.133,0.487" Height="50" Grid.Column="1"/>
+                <TextBlock x:Name="gameInfo" HorizontalAlignment="Left" Margin="308.6,179.6,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" RenderTransformOrigin="-0.133,0.487" Height="50" Grid.Column="1"/>
 
             </Grid>
         </TabItem>
