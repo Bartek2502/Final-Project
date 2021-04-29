@@ -317,6 +317,8 @@ namespace Final_Project
                 var results = query.ToList();
 
                 lbxVideoGames.ItemsSource = results;
+                CoverImage1.Source = null;
+                gameInfo.Text = null;
 
             }
             //string selectedCompany = GameCompaniesBox.SelectedItem as string;
