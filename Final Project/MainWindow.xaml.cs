@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using System.IO;
 using Newtonsoft.Json;
 
+using System.Windows.Threading;
+
 namespace Final_Project
 {
     /// <summary>
@@ -24,6 +26,9 @@ namespace Final_Project
     {
         List<Games> allGames = new List<Games>();
         GameCompanyData db = new GameCompanyData();
+
+        DateTime timeLimit = new DateTime(1999, 1, 13, 3, 57, 32, 11);
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -204,23 +209,43 @@ namespace Final_Project
 
 
             //####################
+            #region oldTimerCode
+            //CountDownTimer timer = new CountDownTimer();
 
-            CountDownTimer timer = new CountDownTimer();
 
+            ////set to 30 mins
+            //timer.SetTime(30, 0);
 
-            //set to 30 mins
-            timer.SetTime(30, 0);
+            //timer.Start();
 
-            timer.Start();
+            ////update label text
+            //timer.TimeChanged += () => tblkSpecialTimer.Text = timer.TimeLeftMsStr;
 
-            //update label text
-            timer.TimeChanged += () => tblkSpecialTimer.Text = timer.TimeLeftMsStr;
+            //// show messageBox on timer = 00:00.000
+            //timer.CountDownFinished += () => MessageBox.Show("Timer finished the work!");
 
-            // show messageBox on timer = 00:00.000
-            timer.CountDownFinished += () => MessageBox.Show("Timer finished the work!");
+            ////timer step. By default is 1 second
+            //timer.StepMs = 77; // for nice milliseconds time switch
 
-            //timer step. By default is 1 second
-            timer.StepMs = 77; // for nice milliseconds time switch
+            #endregion oldTimerCode
+
+            DispatcherTimer dt = new DispatcherTimer();
+            dt.Interval = TimeSpan.FromSeconds(1);
+            dt.Tick += dt_Tick;
+            dt.Start();
+           
+        }
+
+        void dt_Tick(object sender, EventArgs e)
+        {
+            int minute = timeLimit.Minute;
+            int second = timeLimit.Second;
+            timeLimit = timeLimit.AddSeconds(-1);
+
+            tblkSpecialTimer.Text = timeLimit.ToString($"{minute} : {second}");
+        }
+        private void AddGamesAndGenres()
+        {
 
         }
 
@@ -330,13 +355,37 @@ namespace Final_Project
         private void LbxVideoGames_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             VideoGame selectedGame = lbxVideoGames.SelectedItem as VideoGame;
-            CoverImage1.Source = new BitmapImage(new Uri(selectedGame.GameImage, UriKind.Absolute));
-            gameInfo.Text = selectedGame.GameName + " Released in " + selectedGame.GameRelease;
+            if (selectedGame != null)
+            {
+                CoverImage1.Source = new BitmapImage(new Uri(selectedGame.GameImage, UriKind.Absolute));
+                gameInfo.Text = selectedGame.GameName + " Released in " + selectedGame.GameRelease;
+            }
         }
 
         private void ButtonBuy_Click(object sender, RoutedEventArgs e)
         {
+            string data = JsonConvert.SerializeObject(GetRandomOrderNumbers(), Formatting.Indented);
+            using (StreamWriter sw = new StreamWriter("C:/Users/Lenovo/Desktop/Programming/Year 2 semester 2/Final Project/Final Project/orders.json"))
+            {
+                sw.Write(data);
+                sw.Close();
+            }
+            MessageBox.Show("Your order has been placed and order number registered.");
+        }
+        private static List<OrderNumber> GetRandomOrderNumbers()
+        {
+            Random rand = new Random();
+            List<OrderNumber> orderNumbers = new List<OrderNumber>();
 
+            int randomOrderNumbers = rand.Next(1, 1000000);
+
+            OrderNumber orderNr = new OrderNumber()
+            {
+                RandomOrderNumber = randomOrderNumbers.ToString("D7")
+            };
+            orderNumbers.Add(orderNr);
+
+            return orderNumbers;
         }
     }
 }
