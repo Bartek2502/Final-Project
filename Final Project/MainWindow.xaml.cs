@@ -39,18 +39,25 @@ namespace Final_Project
             //Calls a method to add all of the Games and Genres to the "Game Descriptions" section
             AddGamesAndGenres();
 
-            var query = from gc in db.GameCompanies
-                        orderby gc.CompanyName
-                        select gc;
+            try
+            {
+                var query = from gc in db.GameCompanies
+                            orderby gc.CompanyName
+                            select gc;
 
-            var results = query.ToList();
+                var results = query.ToList();
 
-            GameCompaniesBox.ItemsSource = results;
+                GameCompaniesBox.ItemsSource = results;
 
-            DispatcherTimer dt = new DispatcherTimer();
-            dt.Interval = TimeSpan.FromSeconds(1);
-            dt.Tick += dt_Tick;
-            dt.Start();
+                DispatcherTimer dt = new DispatcherTimer();
+                dt.Interval = TimeSpan.FromSeconds(1);
+                dt.Tick += dt_Tick;
+                dt.Start();
+            }
+            catch(Exception error)
+            {
+                Console.WriteLine(error.Message);
+            }
            
         }
 
@@ -187,37 +194,43 @@ namespace Final_Project
             };
 
 
+            try
+            {
+                // adding synopsis to the game objects
+                g1.SynopsisList.Add(d1);
+                g2.SynopsisList.Add(d2);
+                g3.SynopsisList.Add(d3);
+                g4.SynopsisList.Add(d4);
+                g5.SynopsisList.Add(d5);
+                g6.SynopsisList.Add(d6);
+                g7.SynopsisList.Add(d7);
+                g8.SynopsisList.Add(d8);
+                g9.SynopsisList.Add(d9);
+                g10.SynopsisList.Add(d10);
+                g11.SynopsisList.Add(d11);
+                g12.SynopsisList.Add(d12);
 
-            // adding synopsis to the game objects
-            g1.SynopsisList.Add(d1);
-            g2.SynopsisList.Add(d2);
-            g3.SynopsisList.Add(d3);
-            g4.SynopsisList.Add(d4);
-            g5.SynopsisList.Add(d5);
-            g6.SynopsisList.Add(d6);
-            g7.SynopsisList.Add(d7);
-            g8.SynopsisList.Add(d8);
-            g9.SynopsisList.Add(d9);
-            g10.SynopsisList.Add(d10);
-            g11.SynopsisList.Add(d11);
-            g12.SynopsisList.Add(d12);
+                //Adding all the games to the list
+                allGames.Add(g1);
+                allGames.Add(g2);
+                allGames.Add(g3);
+                allGames.Add(g4);
+                allGames.Add(g5);
+                allGames.Add(g6);
+                allGames.Add(g7);
+                allGames.Add(g8);
+                allGames.Add(g9);
+                allGames.Add(g10);
+                allGames.Add(g11);
+                allGames.Add(g12);
 
-            //Adding all the games to the list
-            allGames.Add(g1);
-            allGames.Add(g2);
-            allGames.Add(g3);
-            allGames.Add(g4);
-            allGames.Add(g5);
-            allGames.Add(g6);
-            allGames.Add(g7);
-            allGames.Add(g8);
-            allGames.Add(g9);
-            allGames.Add(g10);
-            allGames.Add(g11);
-            allGames.Add(g12);
-
-            //Adding the list of games to the list box
-            lbxGames.ItemsSource = allGames;
+                //Adding the list of games to the list box
+                lbxGames.ItemsSource = allGames;
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error.Message);
+            }
         }
 
         private void CbxGenre_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -225,70 +238,85 @@ namespace Final_Project
             string selectedGenre = cbxGenre.SelectedItem as string;
 
             List<Games> filteredList = new List<Games>();
-
-            switch (selectedGenre)
+            try
             {
-                case "All":
-                    lbxGames.ItemsSource = allGames;
-                    break;
+                switch (selectedGenre)
+                {
+                    case "All":
+                        lbxGames.ItemsSource = allGames;
+                        break;
 
-                case "Platformer":
+                    case "Platformer":
 
-                    foreach (Games game in allGames)
-                    {
-                        if (game is Platformer)
-                            filteredList.Add(game);
-                    }
-                    lbxGames.ItemsSource = filteredList;
-                    break;
+                        foreach (Games game in allGames)
+                        {
+                            if (game is Platformer)
+                                filteredList.Add(game);
+                        }
+                        lbxGames.ItemsSource = filteredList;
+                        break;
 
-                case "RPG":
+                    case "RPG":
 
-                    foreach (Games game in allGames)
-                    {
-                        if (game is RPG)
-                            filteredList.Add(game);
-                    }
-                    lbxGames.ItemsSource = filteredList;
-                    break;
+                        foreach (Games game in allGames)
+                        {
+                            if (game is RPG)
+                                filteredList.Add(game);
+                        }
+                        lbxGames.ItemsSource = filteredList;
+                        break;
 
-                case "Horror":
+                    case "Horror":
 
-                    foreach (Games game in allGames)
-                    {
-                        if (game is Horror)
-                            filteredList.Add(game);
-                    }
-                    lbxGames.ItemsSource = filteredList;
-                    break;
+                        foreach (Games game in allGames)
+                        {
+                            if (game is Horror)
+                                filteredList.Add(game);
+                        }
+                        lbxGames.ItemsSource = filteredList;
+                        break;
 
-                case "Puzzle":
-                    foreach (Games game in allGames)
-                    {
-                        if (game is Puzzle)
-                            filteredList.Add(game);
-                    }
-                    lbxGames.ItemsSource = filteredList;
-                    break;
+                    case "Puzzle":
+                        foreach (Games game in allGames)
+                        {
+                            if (game is Puzzle)
+                                filteredList.Add(game);
+                        }
+                        lbxGames.ItemsSource = filteredList;
+                        break;
 
+                }
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error.Message);
             }
         }
 
         private void LbxGames_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
             Games selectedGame = lbxGames.SelectedItem as Games;
 
-            if (selectedGame != null)
+            try
             {
-                lbkDescription.Text = selectedGame.DisplayList();
-                string path = selectedGame.GameImage;
-                CoverImage.Source = new BitmapImage(new Uri(selectedGame.GameImage, UriKind.Relative));
-                
+                if (selectedGame != null)
+                {
+                    lbkDescription.Text = selectedGame.DisplayList();
+                    string path = selectedGame.GameImage;
+                    CoverImage.Source = new BitmapImage(new Uri(selectedGame.GameImage, UriKind.Relative));
+
+                }
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error.Message);
             }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+
             MessageBoxResult result = MessageBox.Show("Are you sure you want to submit the score?", "Review", MessageBoxButton.YesNo);
             switch (result)
             {
@@ -305,21 +333,28 @@ namespace Final_Project
         {
             GameCompany selectedCompany = GameCompaniesBox.SelectedItem as GameCompany;
 
-            if (selectedCompany != null)
+            try
             {
-                CompanyLogo.Source = new BitmapImage(new Uri(selectedCompany.CompanyImage, UriKind.Absolute));
-                companyInfo.Text = selectedCompany.CompanyName + " Founded in " + selectedCompany.Founded;
+                if (selectedCompany != null)
+                {
+                    CompanyLogo.Source = new BitmapImage(new Uri(selectedCompany.CompanyImage, UriKind.Absolute));
+                    companyInfo.Text = selectedCompany.CompanyName + " Founded in " + selectedCompany.Founded;
 
-                var query = from vg in db.VideoGames
-                            where vg.CompanyID == selectedCompany.CompanyID
-                            select vg;
+                    var query = from vg in db.VideoGames
+                                where vg.CompanyID == selectedCompany.CompanyID
+                                select vg;
 
-                var results = query.ToList();
+                    var results = query.ToList();
 
-                lbxVideoGames.ItemsSource = results;
-                CoverImage1.Source = null;
-                gameInfo.Text = null;
+                    lbxVideoGames.ItemsSource = results;
+                    CoverImage1.Source = null;
+                    gameInfo.Text = null;
 
+                }
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error.Message);
             }
             //string selectedCompany = GameCompaniesBox.SelectedItem as string;
 
@@ -327,26 +362,42 @@ namespace Final_Project
 
         private void LbxVideoGames_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            VideoGame selectedGame = lbxVideoGames.SelectedItem as VideoGame;
-            if (selectedGame != null)
+            try
             {
-                CoverImage1.Source = new BitmapImage(new Uri(selectedGame.GameImage, UriKind.Absolute));
-                gameInfo.Text = selectedGame.GameName + " Released in " + selectedGame.GameRelease;
+                VideoGame selectedGame = lbxVideoGames.SelectedItem as VideoGame;
+                if (selectedGame != null)
+                {
+                    CoverImage1.Source = new BitmapImage(new Uri(selectedGame.GameImage, UriKind.Absolute));
+                    gameInfo.Text = selectedGame.GameName + " Released in " + selectedGame.GameRelease;
+                }
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error.Message);
             }
         }
 
         private void ButtonBuy_Click(object sender, RoutedEventArgs e)
         {
-            string data = JsonConvert.SerializeObject(GetRandomOrderNumbers(), Formatting.Indented);
-            using (StreamWriter sw = new StreamWriter("C:/Users/Lenovo/Desktop/Programming/Year 2 semester 2/Final Project/Final Project/orders.json"))
+            try
             {
-                sw.Write(data);
-                sw.Close();
+
+                string data = JsonConvert.SerializeObject(GetRandomOrderNumbers(), Formatting.Indented);
+                using (StreamWriter sw = new StreamWriter("C:/Users/Lenovo/Desktop/Programming/Year 2 semester 2/Final Project/Final Project/orders.json"))
+                {
+                    sw.Write(data);
+                    sw.Close();
+                }
+                MessageBox.Show("Your order has been placed and order number registered.");
             }
-            MessageBox.Show("Your order has been placed and order number registered.");
+            catch (Exception error)
+            {
+                Console.WriteLine(error.Message);
+            }
         }
         private static List<OrderNumber> GetRandomOrderNumbers()
         {
+            
             Random rand = new Random();
             List<OrderNumber> orderNumbers = new List<OrderNumber>();
 
