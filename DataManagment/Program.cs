@@ -11,6 +11,7 @@ namespace DataManagment
     {
         static void Main(string[] args)
         {
+            //Adding companies and games to the databases
             GameCompanyData db = new GameCompanyData();
 
             using (db)

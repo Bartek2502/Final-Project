@@ -1,4 +1,9 @@
-﻿using System;
+﻿/* Bartlomiej Sajdok  
+ * S00196895
+ * Software level 8
+ * Year 2 Object Oriented Development
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,10 +29,11 @@ namespace Final_Project
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Games> allGames = new List<Games>();
-        GameCompanyData db = new GameCompanyData();
+        List<Games> allGames = new List<Games>(); // List for storing all the games for the second section
+        GameCompanyData db = new GameCompanyData(); // Declaring the database
 
-        DateTime timeLimit = new DateTime(1999, 1, 13, 3, 57, 32, 11);
+        // date time object for timer, only using minutes and seconds
+        DateTime timeLimit = new DateTime(2021, 4, 13, 3, 30, 00, 00); 
         
         public MainWindow()
         {
@@ -41,6 +47,7 @@ namespace Final_Project
 
             try
             {
+                //query to fill in the combo box with game companies in the second section
                 var query = from gc in db.GameCompanies
                             orderby gc.CompanyName
                             select gc;
@@ -49,8 +56,10 @@ namespace Final_Project
 
                 GameCompaniesBox.ItemsSource = results;
 
+                //code for the timer 
                 DispatcherTimer dt = new DispatcherTimer();
-                dt.Interval = TimeSpan.FromSeconds(1);
+                dt.Interval = TimeSpan.FromSeconds(1); 
+                //dt_Tick method will be called every second
                 dt.Tick += dt_Tick;
                 dt.Start();
             }
@@ -63,9 +72,10 @@ namespace Final_Project
 
         void dt_Tick(object sender, EventArgs e)
         {
+            //declaring minutes and seconds as only those will be needed for the timer
             int minute = timeLimit.Minute;
             int second = timeLimit.Second;
-            timeLimit = timeLimit.AddSeconds(-1);
+            timeLimit = timeLimit.AddSeconds(-1); // the timer will decrease by one second
 
             tblkSpecialTimer.Text = timeLimit.ToString($"{minute} : {second}");
         }
@@ -97,7 +107,7 @@ namespace Final_Project
             Games g11 = new Puzzle() { Name = "Bejeweled 3", Pegi = 3, GameImage = "/images/gem.jpg" };
             Games g12 = new Puzzle() { Name = "Candy Crush", Pegi = 3, GameImage = "/images/candy.jpg" };
 
-
+            //Description for each of the games
             Description d1 = new Description()
             {
                 Synopsis = "Celeste is a platform game in which players control a girl named Madeline as she makes her way up a mountain while avoiding various deadly obstacles. ",
@@ -233,6 +243,7 @@ namespace Final_Project
             }
         }
 
+        //Method for displaying games based on different genres
         private void CbxGenre_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string selectedGenre = cbxGenre.SelectedItem as string;
@@ -293,6 +304,7 @@ namespace Final_Project
             }
         }
 
+        //Changes the game displayed upon clicking on an item in the listbox
         private void LbxGames_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -314,6 +326,7 @@ namespace Final_Project
             }
         }
 
+        //Button for submitting a scored (only displays a message)
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
@@ -329,6 +342,7 @@ namespace Final_Project
             }
         }
 
+        //Will display information and a logo about a company when one is selected
         private void GameCompanies_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             GameCompany selectedCompany = GameCompaniesBox.SelectedItem as GameCompany;
@@ -337,9 +351,12 @@ namespace Final_Project
             {
                 if (selectedCompany != null)
                 {
+                    //updates the logo
                     CompanyLogo.Source = new BitmapImage(new Uri(selectedCompany.CompanyImage, UriKind.Absolute));
+                    //updates the text
                     companyInfo.Text = selectedCompany.CompanyName + " Founded in " + selectedCompany.Founded;
 
+                    //receives the game that the company made from the database
                     var query = from vg in db.VideoGames
                                 where vg.CompanyID == selectedCompany.CompanyID
                                 select vg;
@@ -347,6 +364,7 @@ namespace Final_Project
                     var results = query.ToList();
 
                     lbxVideoGames.ItemsSource = results;
+                    //This sets the game image and description to nothing so that it does not stay when switching companies
                     CoverImage1.Source = null;
                     gameInfo.Text = null;
 
@@ -356,10 +374,11 @@ namespace Final_Project
             {
                 Console.WriteLine(error.Message);
             }
-            //string selectedCompany = GameCompaniesBox.SelectedItem as string;
+           
 
         }
 
+        //Displays game info when a game is selected
         private void LbxVideoGames_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
@@ -377,12 +396,14 @@ namespace Final_Project
             }
         }
 
+        //Registers Json order number that is randomly generated in a json file
         private void ButtonBuy_Click(object sender, RoutedEventArgs e)
         {
             try
             {
 
                 string data = JsonConvert.SerializeObject(GetRandomOrderNumbers(), Formatting.Indented);
+                //saves the order number to this file
                 using (StreamWriter sw = new StreamWriter("C:/Users/Lenovo/Desktop/Programming/Year 2 semester 2/Final Project/Final Project/orders.json"))
                 {
                     sw.Write(data);
@@ -395,6 +416,7 @@ namespace Final_Project
                 Console.WriteLine(error.Message);
             }
         }
+        //generates the random order number
         private static List<OrderNumber> GetRandomOrderNumbers()
         {
             

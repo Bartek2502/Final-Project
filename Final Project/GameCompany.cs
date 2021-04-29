@@ -10,7 +10,8 @@ namespace Final_Project
 {
     public class GameCompany
     {
-        [Key]
+        //Game Company properties
+        [Key]// primary key
         public int CompanyID { get; set; }
         public string CompanyName { get; set; }
         public int Founded { get; set; }
@@ -23,6 +24,7 @@ namespace Final_Project
         }
     }
     public class VideoGame
+        //Video Games properties
     {
         [Key]
         public int GameID { get; set; }

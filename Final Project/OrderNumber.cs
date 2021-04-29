@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Final_Project
 {
+    //properties for the random order number
     public class OrderNumber
     {
         public string RandomOrderNumber { get; set; }
@@ -17,6 +18,7 @@ namespace Final_Project
 
         public OrderNumber() : this("Unknown") { }
 
+        //Formating the json text
         public override string ToString()
         {
             return string.Format("[{0}] {1}", this.GetType().Name.ToUpper(), RandomOrderNumber);
