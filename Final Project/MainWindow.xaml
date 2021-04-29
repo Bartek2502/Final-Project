@@ -5,32 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Final_Project"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded" Background="#FF590202">
 
 
-    <TabControl TabStripPlacement="Top">
+    <TabControl TabStripPlacement="Top" Background="#FF620000">
         <TabItem Name="CheckGame" Header="Game Descriptions" Width="150">
-            <Grid Background="MintCream">
+            <TabItem.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="#FF860303" Offset="1"/>
+                </LinearGradientBrush>
+            </TabItem.Background>
+            <Grid Background="#FFCD6F6F">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="369*"/>
-                    <ColumnDefinition Width="40*"/>
-                    <ColumnDefinition Width="40*"/>
-                    <ColumnDefinition Width="342*"/>
+                    <ColumnDefinition Width="141*"/>
+                    <ColumnDefinition Width="43*"/>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="170*"/>
                 </Grid.ColumnDefinitions>
-                <ComboBox x:Name="cbxGenre" HorizontalAlignment="Left" Margin="58,30,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="CbxGenre_SelectionChanged"/>
-                <ListBox x:Name="lbxGames" HorizontalAlignment="Left" Height="292" Margin="47,91,0,0" VerticalAlignment="Top" Width="267" SelectionChanged="LbxGames_SelectionChanged"/>
-                <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="99.8,18,0,0" TextWrapping="Wrap" Text="Game description" VerticalAlignment="Top" Height="34" Width="115" Grid.Column="3"/>
-                <TextBlock x:Name="lbkDescription" HorizontalAlignment="Left" Margin="49.8,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="3" Height="190" Width="209" />
-                <ComboBox x:Name="cbxRate" HorizontalAlignment="Left" Margin="94.8,278,0,0" VerticalAlignment="Top" Width="120" Grid.Column="3"/>
-                <Button x:Name="button" Content="Submit" HorizontalAlignment="Left" Margin="114.6,359,0,0" VerticalAlignment="Top" Width="75" Grid.Column="3" Click="Button_Click"/>
-                <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="131.8,247,0,0" TextWrapping="Wrap" Text="Rate it!" VerticalAlignment="Top" Grid.Column="3"/>
-                <Image x:Name="CoverImage" Source="/images/nothing.jpg" Margin="331,103,307,150" Grid.ColumnSpan="4"/>
+                <ComboBox x:Name="cbxGenre" HorizontalAlignment="Left" Margin="58,30,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="CbxGenre_SelectionChanged" Background="#FFFF3A3A"/>
+                <ListBox x:Name="lbxGames" HorizontalAlignment="Left" Height="292" Margin="47,91,0,0" VerticalAlignment="Top" Width="267" SelectionChanged="LbxGames_SelectionChanged" Grid.ColumnSpan="2" Background="#FFFF3A3A"/>
+                <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="100,18,0,0" TextWrapping="Wrap" Text="Game description" VerticalAlignment="Top" Height="34" Width="115" Grid.Column="4"/>
+                <TextBlock x:Name="lbkDescription" HorizontalAlignment="Left" Margin="50,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="4" Height="190" Width="209" Background="#FFFF3A3A" />
+                <ComboBox x:Name="cbxRate" HorizontalAlignment="Left" Margin="95,278,0,0" VerticalAlignment="Top" Width="120" Grid.Column="4" Background="#FFFF3A3A"/>
+                <Button x:Name="button" Content="Submit" HorizontalAlignment="Left" Margin="117,340,0,0" VerticalAlignment="Top" Width="75" Grid.Column="4" Click="Button_Click" Background="#FF850505"/>
+                <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="132,247,0,0" TextWrapping="Wrap" Text="Rate it!" VerticalAlignment="Top" Grid.Column="4"/>
+                <Image x:Name="CoverImage" Source="/images/nothing.jpg" Margin="48.6,103,307,149.2" Grid.ColumnSpan="4" Grid.Column="1"/>
                 <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="88,10,0,0" TextWrapping="Wrap" Text="Genre" VerticalAlignment="Top"/>
 
             </Grid>
         </TabItem>
         <TabItem Name="GameCompanies" Header="Game Companies" Width="150">
-            <Grid>
+            <TabItem.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="#FF890000" Offset="1"/>
+                </LinearGradientBrush>
+            </TabItem.Background>
+            <Grid Background="#FFCD6F6F">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="37*"/>
                     <ColumnDefinition Width="357*"/>
@@ -41,25 +54,35 @@
                     <RowDefinition Height="10*"/>
                 </Grid.RowDefinitions>
 
-                <ComboBox Grid.Row="0" Name="GameCompaniesBox"  Margin="57,10,488,5.2"  SelectionChanged="GameCompanies_SelectionChanged" Grid.ColumnSpan="2"/>
-                <ListBox x:Name="lbxVideoGames" Margin="10,38,437,20" Grid.RowSpan="2" Grid.ColumnSpan="2" SelectionChanged="LbxVideoGames_SelectionChanged" />
+                <ComboBox Grid.Row="0" Name="GameCompaniesBox"  Margin="56,29,489,288.8"  SelectionChanged="GameCompanies_SelectionChanged" Grid.ColumnSpan="2" Grid.RowSpan="2" Height="35" Background="#FFFF3A3A"/>
+                <ListBox x:Name="lbxVideoGames" Margin="10,29.8,437,27.2" Grid.ColumnSpan="2" SelectionChanged="LbxVideoGames_SelectionChanged" Grid.Row="1" Grid.RowSpan="2" Background="#FFFF3A3A" />
                 <Image x:Name="CompanyLogo" Source="/images/nothing.jpg" Margin="539.4,8.8,50,192" Grid.Row="1" Grid.Column="1"/>
                 <Image x:Name="CoverImage1" Source="/images/nothing.jpg" Margin="539.6,149.6,50,51" Grid.Row="1" Grid.Column="1"/>
-                <TextBlock x:Name="companyInfo" HorizontalAlignment="Left" Margin="308.4,29.8,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" RenderTransformOrigin="-0.133,0.487" Height="50" Grid.Column="1"/>
-                <TextBlock x:Name="gameInfo" HorizontalAlignment="Left" Margin="308.6,179.6,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" RenderTransformOrigin="-0.133,0.487" Height="50" Grid.Column="1"/>
+                <TextBlock x:Name="companyInfo" HorizontalAlignment="Left" Margin="308.4,29.8,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" RenderTransformOrigin="-0.133,0.487" Height="50" Grid.Column="1" Background="#FFFF3A3A"/>
+                <TextBlock x:Name="gameInfo" HorizontalAlignment="Left" Margin="308.6,179.6,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" RenderTransformOrigin="-0.133,0.487" Height="50" Grid.Column="1" Background="#FFFF3A3A"/>
+                <TextBlock x:Name="Select_the_company" Grid.Column="1" HorizontalAlignment="Left" Margin="50.6,8,0,0" TextWrapping="Wrap" Text="Select The company" VerticalAlignment="Top"/>
 
             </Grid>
         </TabItem>
-        <TabItem Name="Shop" Header="Shop" Width="150">
-            <Grid>
+        <TabItem Name="Shop" Header="Shop" Width="150" Foreground="Black" IsSelected="True">
+            <TabItem.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="#FF710101" Offset="1"/>
+                </LinearGradientBrush>
+            </TabItem.Background>
+            <Grid Background="#FFCD6F6F">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="2"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Image x:Name="SpecialGame" Source="images/celeste.jpg" Margin="82,10,104.6,173.2"/>
-                <TextBlock x:Name="tblkSpecialTimer" Grid.Column="2" HorizontalAlignment="Left" Margin="202.8,49,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-                <Button x:Name="buttonBuy" Content="Reserve" HorizontalAlignment="Left" Margin="154,302,0,0" VerticalAlignment="Top" Width="75" Click="ButtonBuy_Click" />
+                <TextBlock x:Name="tblkSpecialTimer" Grid.Column="2" HorizontalAlignment="Left" Margin="210.8,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" Height="82" FontSize="30"/>
+                <Button x:Name="buttonBuy" Content="Reserve" HorizontalAlignment="Left" Margin="144,294,0,0" VerticalAlignment="Top" Width="89" Click="ButtonBuy_Click" Background="#FF850505" Foreground="#FFFCFCFC" />
+                <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="331,38,0,0" TextWrapping="Wrap" Text="Special Offer" VerticalAlignment="Top" RenderTransformOrigin="0.164,0.312" FontSize="20" Grid.ColumnSpan="3" Width="119" Background="#FFFF3A3A"/>
+                <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="331,86,0,0" TextWrapping="Wrap" Text="For a limited time onlyn you can obtain a free copy of celeste." VerticalAlignment="Top" FontSize="16" Grid.ColumnSpan="3" Width="133" Height="91" Background="#FFFF3A3A"/>
+                <TextBlock x:Name="textBlock5" Grid.Column="2" HorizontalAlignment="Left" Margin="198.8,44,0,0" TextWrapping="Wrap" Text="The offer ends in" VerticalAlignment="Top" RenderTransformOrigin="0.311,0.562" FontSize="20" Background="#FFFF3A3A"/>
 
             </Grid>
         </TabItem>
